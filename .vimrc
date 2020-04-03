@@ -1,3 +1,4 @@
+"Set colorScheme
 "Set map leader
 let mapleader = ","
 " Set compatibility to Vim only.
@@ -9,6 +10,8 @@ filetype off
 " Turn on syntax highlighting.
 syntax on
 
+set background=dark
+colorscheme hybrid
 " For plug-ins to load correctly.
 filetype plugin indent on
 
@@ -107,6 +110,33 @@ let g:ctrlp_map = '<c-p>'
 "Easymotion configuration
 nmap ss <Plug>(easymotion-s2)
 
+"Window jump map
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
 
+" Python-mode
+let g:pymode_python = 'python3'
+let g:pymode_trim_whitespaces = 1
+let g:pymode_doc=1
+let g:pymode_doc_bind = 'K'
+let g:pymode_rope_goto_definition_bind = "<C-]>"
+let g:pymode_lint = 1
+let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint']
+let g:pymode_options_max_line_length = 120
 
+set completeopt-=preview
 
+"Define a function SetTitle to add header of python file
+func SetTitle()
+    if &filetype =='python'
+      call setline(1,"\#!/usr/bin/env/python")
+      call setline(2,"\# -*- coding: utf-8 -*-")
+      normal G
+      normal o
+      normal o
+      call setline(5,"if __name__ == '__main__':")
+      call setline(6,"    pass")
+    endif
+endfunc

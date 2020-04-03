@@ -14,4 +14,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'w0ng/vim-hybrid'
+Plug 'tpope/vim-surround'
+Plug 'python-mode/python-mode', { 'branch': 'develop'}
+Plug 'jmcantrell/vim-virtualenv'
 call plug#end()
